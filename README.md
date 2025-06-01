@@ -68,3 +68,32 @@ All database queries involving user input utilize prepared statements to prevent
 - Assign equipment to rooms
 - View facility summaries and statistics
 - Oversee the overall structure of departments, rooms, and equipment across the institution
+
+
+## Registrar
+![Sign-in Page](screenshots/sign-in.png)
+![Add Admin](screenshots/registrar/reg_add_admin.png)
+![Add Building](screenshots/registrar/reg_add_building.png)
+![Add Rooms](screenshots/registrar/reg_add_rooms.png)
+![Facility Management](screenshots/registrar/facility_management.png)
+![Add Equipment](screenshots/registrar/reg_add_equipment.png)
+![Assign Equipment](screenshots/registrar/assign_equipment.png)
+
+## Department Admin
+![Admin Dashboard](screenshots/dept-admin/admin_dashboard.png)
+![Room Approval](screenshots/dept-admin/room_approval.png)
+![Add Student](screenshots/dept-admin/add_student.png)
+![Add Teacher](screenshots/dept-admin/add_teacher.png)
+![Edit Student](screenshots/dept-admin/edit_student.png)
+![Edit Teacher](screenshots/dept-admin/edit_teacher.png)
+![Equipment Report](screenshots/dept-admin/equipment_report.png)
+![Equipment 1](screenshots/dept-admin/eq1.png)
+![Equipment 2](screenshots/dept-admin/eq2.png)
+![QR Code Generator](screenshots/dept-admin/qr_code_generator.png)
+
+## Student/Teacher
+![Browse Room](screenshots/student_teacher/browse_room.png)
+![Reservation Status](screenshots/student_teacher/reservation_status.png)
+![Reservation History](screenshots/student_teacher/reservation_history.png)
+![Equipment Reports](screenshots/student_teacher/equipment_reports.png)
+![Report Page](screenshots/student_teacher/report_page.png)
