@@ -1,76 +1,95 @@
-# MCiSmartSpace (improved RMIS)
+# MCiSmartSpace (Improved RMIS)
 
-## Description
+## 📌 Overview
 
-MCiSmartSpace is a comprehensive web application designed for managing room reservations, equipment tracking, and user administration in academic environments. The system supports role-based access control across multiple user types including students, teachers, department administrators, and registrar staff. Key features include QR code-based room check-ins, equipment issue reporting with file uploads, PDF generation for reports, and a responsive interface that adapts to different screen sizes and user roles.
+**MCiSmartSpace** is a comprehensive web-based system designed to streamline room reservations, monitor equipment usage, and manage academic facility resources. Developed with role-based access control, the system supports students, teachers, department administrators, and registrar staff through a unified interface.
 
-## Interesting Techniques
+> This capstone project was conceptualized, designed, and fully implemented by **Audreylyn Moraña** as the technical lead.
 
-The codebase employs several modern web development patterns. The application uses [Flexbox layouts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox) extensively for responsive design, combined with [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) for complex layouts. Client-side PDF generation is handled through browser APIs without server processing. The QR code functionality integrates both the [Barcode Detection API](https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API) where supported and fallback JavaScript libraries. File uploads utilize [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) with progress tracking and validation. The interface implements [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) for consistent theming across different user role interfaces.
+---
 
-## Notable Technologies & Libraries
+## 🚀 Key Features
 
-The application integrates several established libraries and frameworks. [Bootstrap 4.3.1](https://getbootstrap.com/docs/4.3/) provides the responsive grid system and UI components. [Font Awesome 4.5.0](https://fontawesome.com/v4.7.0/) supplies the icon system throughout the interface. [jQuery](https://jquery.com/) handles DOM manipulation and AJAX interactions. [DataTables](https://datatables.net/) powers the sortable, searchable data grids. The QR code functionality uses [QRCode.js](https://github.com/davidshimjs/qrcodejs) for generation and [HTML5-QRCode](https://github.com/mebjas/html5-qrcode) for scanning. [PHPSpreadsheet](https://github.com/PHPOffice/PhpSpreadsheet) manages Excel file imports and exports. The PHP backend utilizes [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv) for environment configuration management.
+- 🏷️ **Room Reservation with QR Check-in**
+- 🔧 **Equipment Reporting with File Uploads**
+- 🧾 **PDF Export and Report Generation**
+- 🔐 **Secure Role-Based Access**
+- 📊 **Statistics Dashboards per Role**
+- 🖥️ **Responsive Design for All Devices**
 
-Typography uses [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans) from Google Fonts. Performance optimizations include [FastClick](https://github.com/ftlabs/fastclick) for mobile interaction improvements and [Malihu Custom Scrollbar](https://manos.malihu.gr/jquery-custom-content-scroller/) for enhanced scrolling experiences.
+---
 
-## Security Features
+## 🛠️ Technologies Used
 
-### Session Security
-Secure session cookies are implemented with secure, httponly, and samesite=Lax flags to prevent interception and cross-site attacks. The system enforces session timeout after 30 minutes of inactivity and after 12 hours regardless of activity level. Session IDs undergo regeneration after login to prevent session fixation attacks. Session integrity checks validate the user agent on each request to help prevent session hijacking attempts.
+| Area                      | Tools & Libraries                                                                 |
+|---------------------------|------------------------------------------------------------------------------------|
+| **Frontend**              | Bootstrap 4.3.1, Font Awesome 4.5.0, jQuery                                       |
+| **PDF & Barcode**         | QRCode.js, HTML5-QRCode, Client-side PDF APIs                                     |
+| **Backend**               | PHP, PHPMailer, PHPSpreadsheet, vlucas/phpdotenv                                  |
+| **UI Techniques**         | Flexbox, CSS Grid, CSS Custom Properties                                           |
+| **Data & Tables**         | DataTables, Malihu Custom Scrollbar                                               |
+| **Security Enhancements** | Secure session flags, Role-based auth, Password hashing with BCRYPT               |
+| **Performance**           | FastClick (for mobile tap delay removal)                                          |
+| **Typography**            | Plus Jakarta Sans (Google Fonts)                                                  |
 
-### Authentication and Authorization
-Role-based access control ensures every protected page uses middleware to verify the user's role and session validity before granting access. The secure logout process destroys all session data and cookies to prevent unauthorized access to previous sessions.
+---
 
-### Password Security
-All user passwords are hashed using the password_hash() function with the BCRYPT algorithm and a cost factor of 12. Password verification is handled through the password_verify() function to ensure secure authentication processes.
+## 🔐 Security Features
 
-### Rate Limiting
-The login system implements rate limiting to restrict failed login attempts to 5 attempts per 5 minutes per IP address, providing protection against brute-force attacks.
+### ✅ Session Security
+- Session cookies: `secure`, `httponly`, `samesite=Lax`
+- Auto-timeout: 30 min idle / 12 hr total
+- Session ID regeneration on login
+- User-Agent-based session verification
 
-### Input Validation and Sanitization
-All database queries involving user input utilize prepared statements to prevent SQL injection attacks. User input undergoes validation and sanitization before processing, including checks for email format, required fields, and password length requirements.
+### ✅ Authentication & Authorization
+- Role-based page protection
+- Middleware checks for user roles
+- Secure logout with full session/cookie destruction
 
-## User Roles and Responsibilities
+### ✅ Password Security
+- Passwords hashed using `password_hash()` with `BCRYPT` and cost factor 12
+- Authentication via `password_verify()`
 
-### Student
-- Browse available rooms and view room details
-- Submit room reservation requests for activities
-- View the status of their own room reservations (pending, approved, rejected)
-- Cancel their own pending reservation requests
-- Report equipment issues in rooms they use
-- View the status of their equipment issue reports
-- Download or generate PDF confirmations for reservations
-- Edit their profile (with some fields restricted to admin updates)
-- Change their password and delete their account
+### ✅ Rate Limiting
+- Max 5 failed login attempts per 5 minutes per IP address
 
-### Teacher
-- Browse available rooms and view room details
-- Submit room reservation requests for classes or activities
-- View the status of their own room reservations (pending, approved, rejected)
-- Cancel their own pending reservation requests
-- Report equipment issues in rooms they use
-- View the status of their equipment issue reports
-- Download or generate PDF confirmations for reservations
-- Edit their profile (with some fields restricted to admin updates)
-- Change their password and delete their account
+### ✅ Input Validation
+- Strict input validation and sanitation
+- All DB queries use prepared statements
 
-### Department Admin
-- Approve or reject room reservation requests from students and teachers in their department
-- Manage (add, edit, delete) student and teacher accounts for their department
-- View statistics and summaries for rooms, equipment, and requests in their department
-- Monitor and resolve equipment issues reported by students and teachers in their department
-- Oversee room and equipment assignments within their department
+---
 
-### Registrar
-- Add and manage department admin accounts
-- Add and manage rooms and buildings
+## 👤 User Roles & Responsibilities
+
+### 🎓 Student / 🧑‍🏫 Teacher
+- Browse rooms and submit reservations
+- View reservation status (Pending, Approved, Rejected)
+- Cancel pending requests
+- Report equipment issues
+- Track issue/report history
+- Download PDF confirmations
+- Edit personal profile
+- Change password / Delete account
+
+### 🧑‍💼 Department Admin
+- Approve/reject student & teacher requests
+- Manage student/teacher accounts
+- Monitor equipment issues
+- View department statistics
+- Oversee room/equipment allocations
+
+### 🏢 Registrar
+- Manage admin accounts, rooms, and buildings
 - Assign equipment to rooms
-- View facility summaries and statistics
-- Oversee the overall structure of departments, rooms, and equipment across the institution
+- View global facility/equipment stats
+- Maintain system-wide structure
 
+---
 
-## Registrar
+## 📷 Screenshots by Role
+
+### 🏢 Registrar
 ![Sign-in Page](screenshots/sign-in.png)
 ![Add Admin](screenshots/registrar/reg_add_admin.png)
 ![Add Building](screenshots/registrar/reg_add_building.png)
@@ -79,7 +98,9 @@ All database queries involving user input utilize prepared statements to prevent
 ![Add Equipment](screenshots/registrar/reg_add_equipment.png)
 ![Assign Equipment](screenshots/registrar/assign_equipment.png)
 
-## Department Admin
+---
+
+### 🧑‍💼 Department Admin
 ![Admin Dashboard](screenshots/dept-admin/admin_dashboard.png)
 ![Room Approval](screenshots/dept-admin/room_approval.png)
 ![Add Student](screenshots/dept-admin/add_student.png)
@@ -91,9 +112,26 @@ All database queries involving user input utilize prepared statements to prevent
 ![Equipment 2](screenshots/dept-admin/eq2.png)
 ![QR Code Generator](screenshots/dept-admin/qr_code_generator.png)
 
-## Student/Teacher
+---
+
+### 👩‍🎓 Student / 👨‍🏫 Teacher
 ![Browse Room](screenshots/student_teacher/browse_room.png)
 ![Reservation Status](screenshots/student_teacher/reservation_status.png)
 ![Reservation History](screenshots/student_teacher/reservation_history.png)
 ![Equipment Reports](screenshots/student_teacher/equipment_reports.png)
 ![Report Page](screenshots/student_teacher/report_page.png)
+
+---
+
+## 📄 License & Credits
+
+This project is part of an academic capstone submission. All technologies used respect their respective licenses. For more details, consult the `LICENSE` file or the documentation guide provided.
+https://docs.google.com/document/d/1AUt2GX5aSccbsqDtfyzA8Y_tD_5woG99c4XPZXhRrz4/edit?tab=t.0#heading=h.5yd0k7wozhzr
+---
+
+## ✍️ Author
+
+Developed by **Audreylyn Moraña**  
+📧 email: audreylynmorana1504@gmail.com  
+🛠️ FrontEnd/Technical lead
+
