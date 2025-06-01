@@ -10,12 +10,12 @@
 
 ## 🚀 Key Features
 
-- 🏷️ **Room Reservation with QR Check-in**
-- 🔧 **Equipment Reporting with File Uploads**
-- 🧾 **PDF Export and Report Generation**
-- 🔐 **Secure Role-Based Access**
-- 📊 **Statistics Dashboards per Role**
-- 🖥️ **Responsive Design for All Devices**
+- **Room Reservation with QR Check-in**
+- **Equipment Reporting with File Uploads**
+- **PDF Export and Report Generation**
+- **Secure Role-Based Access**
+- **Statistics Dashboards per Role**
+- **Responsive Design for All Devices**
 
 ---
 
@@ -36,25 +36,25 @@
 
 ## 🔐 Security Features
 
-### ✅ Session Security
+### Session Security
 - Session cookies: `secure`, `httponly`, `samesite=Lax`
 - Auto-timeout: 30 min idle / 12 hr total
 - Session ID regeneration on login
 - User-Agent-based session verification
 
-### ✅ Authentication & Authorization
+### Authentication & Authorization
 - Role-based page protection
 - Middleware checks for user roles
 - Secure logout with full session/cookie destruction
 
-### ✅ Password Security
+### Password Security
 - Passwords hashed using `password_hash()` with `BCRYPT` and cost factor 12
 - Authentication via `password_verify()`
 
-### ✅ Rate Limiting
+### Rate Limiting
 - Max 5 failed login attempts per 5 minutes per IP address
 
-### ✅ Input Validation
+### Input Validation
 - Strict input validation and sanitation
 - All DB queries use prepared statements
 
@@ -62,7 +62,7 @@
 
 ## 👤 User Roles & Responsibilities
 
-### 🎓 Student / 🧑‍🏫 Teacher
+### Student / Teacher
 - Browse rooms and submit reservations
 - View reservation status (Pending, Approved, Rejected)
 - Cancel pending requests
@@ -72,14 +72,14 @@
 - Edit personal profile
 - Change password / Delete account
 
-### 🧑‍💼 Department Admin
+### Department Admin
 - Approve/reject student & teacher requests
 - Manage student/teacher accounts
 - Monitor equipment issues
 - View department statistics
 - Oversee room/equipment allocations
 
-### 🏢 Registrar
+### Registrar
 - Manage admin accounts, rooms, and buildings
 - Assign equipment to rooms
 - View global facility/equipment stats
@@ -89,7 +89,7 @@
 
 ## 📷 Screenshots by Role
 
-### 🏢 Registrar
+### Registrar
 ![Sign-in Page](screenshots/sign-in.png)
 ![Add Admin](screenshots/registrar/reg_add_admin.png)
 ![Add Building](screenshots/registrar/reg_add_building.png)
@@ -100,7 +100,7 @@
 
 ---
 
-### 🧑‍💼 Department Admin
+### Department Admin
 ![Admin Dashboard](screenshots/dept-admin/admin_dashboard.png)
 ![Room Approval](screenshots/dept-admin/room_approval.png)
 ![Add Student](screenshots/dept-admin/add_student.png)
@@ -114,7 +114,7 @@
 
 ---
 
-### 👩‍🎓 Student / 👨‍🏫 Teacher
+### Student / Teacher
 ![Browse Room](screenshots/student_teacher/browse_room.png)
 ![Reservation Status](screenshots/student_teacher/reservation_status.png)
 ![Reservation History](screenshots/student_teacher/reservation_history.png)
@@ -125,13 +125,11 @@
 
 ## 📄 License & Credits
 
-This project is part of an academic capstone submission. All technologies used respect their respective licenses. For more details, consult the `LICENSE` file or the documentation guide provided.
-https://docs.google.com/document/d/1AUt2GX5aSccbsqDtfyzA8Y_tD_5woG99c4XPZXhRrz4/edit?tab=t.0#heading=h.5yd0k7wozhzr
+This project represents an academic capstone submission developed in compliance with institutional requirements. All third-party technologies and libraries integrated within the application are utilized in accordance with their respective licensing terms and conditions. For comprehensive licensing information and detailed attribution of external resources, please reference the project's `LICENSE` file or consult the complete [documentation guide](https://docs.google.com/document/d/1AUt2GX5aSccbsqDtfyzA8Y_tD_5woG99c4XPZXhRrz4/edit?tab=t.0#heading=h.5yd0k7wozhzr) which provides thorough coverage of all technological dependencies and their associated terms.
+
 ---
 
 ## ✍️ Author
-
 Developed by **Audreylyn Moraña**  
 📧 email: audreylynmorana1504@gmail.com  
 🛠️ FrontEnd/Technical lead
-
